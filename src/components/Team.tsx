@@ -46,7 +46,7 @@ const defaultMembers: TeamMember[] = [
     "name": "Καθ. Εμμανουήλ Κουδουμάς",
     "title": "Φυσικός",
     "role": "Επιστημονικός Σύμβουλος",
-    "image_url": "",
+    "image_url": "/images/omada_koudoumas.webp",
     "linkedin": ""
   },
   {
@@ -54,15 +54,15 @@ const defaultMembers: TeamMember[] = [
     "name": "Ευδοκία Κρυσταλλίδου",
     "title": "Γεωπόνος- Ζωοτέχνης",
     "role": "Επιστημονικός Σύμβουλος",
-    "image_url": "",
-    "linkedin": ""
+    "image_url": "/images/Krystallidou-Vicky-REC2.webp",
+    "linkedin": "https://www.linkedin.com/in/evdokia-krystallidou-b08a4288/"
   },
   {
     "id": "default-5",
     "name": "Γιώργος Μανουσάκης",
     "title": "Δημιουργός",
     "role": "Υπεύθυνος Ανάπτυξης Δικτύου",
-    "image_url": "",
+    "image_url": "/images/omada_manousakis.webp",
     "linkedin": ""
   },
   {
@@ -70,23 +70,23 @@ const defaultMembers: TeamMember[] = [
     "name": "Νικόλαος Ζερβός",
     "title": "Οικονομολόγος",
     "role": "Διαχειριστής Ευρωπαϊκών Έργων - Υπεύθυνος του Ζωντανού Εργαστηρίου MACCSOIL",
-    "image_url": "",
-    "linkedin": ""
+    "image_url": "/images/ZERVOS-IMAGE.webp",
+    "linkedin": "https://www.linkedin.com/in/nikos-zervos-8b3962272/"
   },
   {
     "id": "default-7",
     "name": "Παύλος Κοκοσάλης",
     "title": "Οικονομολόγος",
     "role": "Υπεύθυνος για Χρηματοδοτούμενα Προγράμματα",
-    "image_url": "",
-    "linkedin": ""
+    "image_url": "/images/20250114_150031_new-2.webp",
+    "linkedin": "https://www.linkedin.com/in/pavlos-kokosalis-9b55a4226/"
   },
   {
     "id": "default-8",
     "name": "Ιωάννης Ρινακάκης",
     "title": "Γεωπόνος",
     "role": "Υπεύθυνος πωλήσεων",
-    "image_url": "",
+    "image_url": "/images/RINAKAKIS-REC2.webp",
     "linkedin": ""
   },
   {
@@ -94,7 +94,7 @@ const defaultMembers: TeamMember[] = [
     "name": "Μαρία-Ειρήνη Ταμβακάκη",
     "title": "Λογοθεραπεύτρια",
     "role": "Υπεύθυνη πωλήσεων",
-    "image_url": "",
+    "image_url": "/images/image0-32.webp",
     "linkedin": ""
   },
   {
@@ -102,15 +102,15 @@ const defaultMembers: TeamMember[] = [
     "name": "Σοφία Μαραγκάκη",
     "title": "Οικονομολόγος",
     "role": "Υπεύθυνη για Χρηματοδοτούμενα Προγράμματα",
-    "image_url": "",
-    "linkedin": ""
+    "image_url": "/images/omada_maragaki.webp",
+    "linkedin": "https://www.linkedin.com/in/sofia-maragkaki-64838094/"
   },
   {
     "id": "default-11",
     "name": "Χαράλαμπος Πατσιανωτάκης",
     "title": "Ηλεκτρολόγος Μηχανικός & Μηχανικός Η/Υ",
     "role": "Υπεύθυνος Τεχνικού Προϊόντος",
-    "image_url": "",
+    "image_url": "/images/LOG-B_0253-1.webp",
     "linkedin": ""
   },
   {
@@ -118,7 +118,7 @@ const defaultMembers: TeamMember[] = [
     "name": "Νεκτάριος Φακιδάρης",
     "title": "Μηχανολόγος Μηχανικός",
     "role": "Υπεύθυνος Ανάπτυξης",
-    "image_url": "",
+    "image_url": "/images/omada_fakidaris.webp",
     "linkedin": ""
   },
   {
@@ -134,7 +134,7 @@ const defaultMembers: TeamMember[] = [
     "name": "Γρηγόριος Κοκολάκης",
     "title": "Οικονομολόγος",
     "role": "",
-    "image_url": "",
+    "image_url": "/images/omada_kokolakis.webp",
     "linkedin": ""
   }
 ];
