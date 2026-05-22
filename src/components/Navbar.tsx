@@ -107,8 +107,8 @@ export default function Navbar() {
       subItems: [
         { label: t('nav.macc.vision'), href: '/vision' },
         { label: t('nav.macc.team'), href: '/team' },
-        { label: t('nav.macc.partners'), href: '#partners' },
-        { label: t('nav.macc.services'), href: '#services' },
+        { label: t('nav.macc.partners'), href: '/partners' },
+        { label: t('nav.macc.services'), href: '/services' },
         { label: t('nav.macc.casestudies'), href: '#case-studies' },
       ]
     },
