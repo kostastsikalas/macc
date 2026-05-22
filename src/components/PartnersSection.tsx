@@ -45,7 +45,7 @@ const partnersData: Partner[] = [
     name: "Infosupport AE",
     category: "Πληροφορική",
     description: "Η Infosupport AE, ξεκίνησε τη λειτουργία της το 1990, με εξειδίκευση στον τομέα της πληροφορικής, προσφέροντας υψηλής ποιότητας υπηρεσίες υποστήριξης και ανάπτυξης λογισμικού. Η παρουσία της εκτείνεται σε όλη την χώρα διαθέτοντας γραφεία σε Αθήνα, Θεσσαλονίκη και Κρήτη.",
-    image: "/images/image0-32.webp", // Placeholder as it wasn't explicitly found
+    image: "/images/PHONESTORE_INFOMEN.webp", // Updated from placeholder
     website: "#"
   },
   {
@@ -173,7 +173,7 @@ const partnersData: Partner[] = [
     name: "ΒΙΟΧΥΜ ΑΕ",
     category: "Βιομηχανία",
     description: "Η ΒΙΟΧΥΜ, είναι η πρώτη βιομηχανία εκχύμωσης στην Ελλάδα. Ιδρύθηκε το 1956 και είναι σήμερα ένα από τα λιγοστά εργοστάσια της Ελλάδας που ασχολούνται παράλληλα με τη μεταποίηση των εσπεριδοειδών και την τυποποίηση των χυμών. Παραλαμβάνει από τον εύφορο κάμπο των Χανίων και εκχυμώνει φρέσκα εσπεριδοειδή.",
-    image: "/images/image0-32.webp",
+    image: "/images/bioxim.webp",
     website: "#"
   },
   {
