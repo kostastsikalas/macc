@@ -1,13 +1,14 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import { ExternalLink, Handshake, ChevronDown, ChevronUp } from 'lucide-react';
 import Image from 'next/image';
+import { supabase } from '@/lib/supabase';
 
 interface Partner {
-  id: number;
+  id: number | string;
   name: string;
   category: string;
   description: string;
@@ -380,11 +381,24 @@ const partnersData: Partner[] = [
 
 export default function PartnersSection() {
   const { t, language } = useLanguage();
-  const [expandedId, setExpandedId] = useState<number | null>(null);
+  const [expandedId, setExpandedId] = useState<number | string | null>(null);
+  const [dbPartners, setDbPartners] = useState<Partner[]>([]);
 
-  const toggleExpand = (id: number) => {
+  useEffect(() => {
+    async function fetchPartners() {
+      const { data } = await supabase.from('partners').select('*').order('created_at', { ascending: true });
+      if (data) {
+        setDbPartners(data);
+      }
+    }
+    fetchPartners();
+  }, []);
+
+  const toggleExpand = (id: number | string) => {
     setExpandedId(expandedId === id ? null : id);
   };
+
+  const allPartners = [...partnersData, ...dbPartners];
 
   return (
     <section id="partners" className="py-24 relative overflow-hidden bg-gray-50">
@@ -435,7 +449,7 @@ export default function PartnersSection() {
 
         {/* Partners Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {partnersData.map((partner, index) => (
+          {allPartners.map((partner, index) => (
             <motion.div
               key={partner.id}
               initial={{ opacity: 0, y: 20 }}

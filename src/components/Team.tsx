@@ -24,6 +24,121 @@ interface TeamMember {
   linkedin: string;
 }
 
+const defaultMembers: TeamMember[] = [
+  {
+    "id": "default-1",
+    "name": "Δρ. Μιχάλης Καθαράκης",
+    "title": "Φυσικός",
+    "role": "CEO - Διαχειριστής",
+    "image_url": "",
+    "linkedin": ""
+  },
+  {
+    "id": "default-2",
+    "name": "Γεωργία Καπελλάκη",
+    "title": "Φιλόλογος",
+    "role": "COO- Γενική Διευθύντρια Λειτουργιών",
+    "image_url": "",
+    "linkedin": ""
+  },
+  {
+    "id": "default-3",
+    "name": "Καθ. Εμμανουήλ Κουδουμάς",
+    "title": "Φυσικός",
+    "role": "Επιστημονικός Σύμβουλος",
+    "image_url": "",
+    "linkedin": ""
+  },
+  {
+    "id": "default-4",
+    "name": "Ευδοκία Κρυσταλλίδου",
+    "title": "Γεωπόνος- Ζωοτέχνης",
+    "role": "Επιστημονικός Σύμβουλος",
+    "image_url": "",
+    "linkedin": ""
+  },
+  {
+    "id": "default-5",
+    "name": "Γιώργος Μανουσάκης",
+    "title": "Δημιουργός",
+    "role": "Υπεύθυνος Ανάπτυξης Δικτύου",
+    "image_url": "",
+    "linkedin": ""
+  },
+  {
+    "id": "default-6",
+    "name": "Νικόλαος Ζερβός",
+    "title": "Οικονομολόγος",
+    "role": "Διαχειριστής Ευρωπαϊκών Έργων - Υπεύθυνος του Ζωντανού Εργαστηρίου MACCSOIL",
+    "image_url": "",
+    "linkedin": ""
+  },
+  {
+    "id": "default-7",
+    "name": "Παύλος Κοκοσάλης",
+    "title": "Οικονομολόγος",
+    "role": "Υπεύθυνος για Χρηματοδοτούμενα Προγράμματα",
+    "image_url": "",
+    "linkedin": ""
+  },
+  {
+    "id": "default-8",
+    "name": "Ιωάννης Ρινακάκης",
+    "title": "Γεωπόνος",
+    "role": "Υπεύθυνος πωλήσεων",
+    "image_url": "",
+    "linkedin": ""
+  },
+  {
+    "id": "default-9",
+    "name": "Μαρία-Ειρήνη Ταμβακάκη",
+    "title": "Λογοθεραπεύτρια",
+    "role": "Υπεύθυνη πωλήσεων",
+    "image_url": "",
+    "linkedin": ""
+  },
+  {
+    "id": "default-10",
+    "name": "Σοφία Μαραγκάκη",
+    "title": "Οικονομολόγος",
+    "role": "Υπεύθυνη για Χρηματοδοτούμενα Προγράμματα",
+    "image_url": "",
+    "linkedin": ""
+  },
+  {
+    "id": "default-11",
+    "name": "Χαράλαμπος Πατσιανωτάκης",
+    "title": "Ηλεκτρολόγος Μηχανικός & Μηχανικός Η/Υ",
+    "role": "Υπεύθυνος Τεχνικού Προϊόντος",
+    "image_url": "",
+    "linkedin": ""
+  },
+  {
+    "id": "default-12",
+    "name": "Νεκτάριος Φακιδάρης",
+    "title": "Μηχανολόγος Μηχανικός",
+    "role": "Υπεύθυνος Ανάπτυξης",
+    "image_url": "",
+    "linkedin": ""
+  },
+  {
+    "id": "default-13",
+    "name": "Ιωάννα Σπανάκη",
+    "title": "Δικηγόρος",
+    "role": "",
+    "image_url": "",
+    "linkedin": ""
+  },
+  {
+    "id": "default-14",
+    "name": "Γρηγόριος Κοκολάκης",
+    "title": "Οικονομολόγος",
+    "role": "",
+    "image_url": "",
+    "linkedin": ""
+  }
+];
+
 export default function Team() {
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
   const [loading, setLoading] = useState(true);
@@ -36,7 +151,7 @@ export default function Team() {
         .order('created_at', { ascending: true });
         
       if (data) {
-        setTeamMembers(data);
+        setTeamMembers([...defaultMembers, ...data]);
       }
       setLoading(false);
     };
