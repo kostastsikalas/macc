@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import AdminGuard from '@/components/AdminGuard';
-import { Users, LayoutDashboard, FileText, LogOut } from 'lucide-react';
+import { Users, LayoutDashboard, FileText, LogOut, Type } from 'lucide-react';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -51,6 +51,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             >
               <FileText className="w-5 h-5" />
               Νέα & Ανακοινώσεις
+            </Link>
+            <Link 
+              href="/admin/content" 
+              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg font-medium transition-colors ${pathname.includes('/admin/content') ? 'bg-[#2e5343] text-white' : 'text-gray-600 hover:bg-gray-50 hover:text-[#2e5343]'}`}
+            >
+              <Type className="w-5 h-5" />
+              Διαχείριση Κειμένων
             </Link>
           </nav>
 

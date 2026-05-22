@@ -1,6 +1,7 @@
 'use client';
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { supabase } from '@/lib/supabase';
 
 type Language = 'GR' | 'EN';
 
@@ -8,11 +9,13 @@ interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
+  isLoadingTranslations: boolean;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-const translations: Record<Language, Record<string, string>> = {
+// Default translations as fallback
+const defaultTranslations: Record<Language, Record<string, string>> = {
   EN: {
     // Nav
     'nav.macc': 'MACC',
@@ -145,13 +148,45 @@ const translations: Record<Language, Record<string, string>> = {
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('GR');
+  const [translations, setTranslations] = useState<Record<Language, Record<string, string>>>(defaultTranslations);
+  const [isLoadingTranslations, setIsLoadingTranslations] = useState(true);
+
+  useEffect(() => {
+    async function fetchTranslations() {
+      try {
+        const { data, error } = await supabase
+          .from('site_content')
+          .select('key, value_gr, value_en');
+          
+        if (error) throw error;
+        
+        if (data && data.length > 0) {
+          const newGr: Record<string, string> = { ...defaultTranslations.GR };
+          const newEn: Record<string, string> = { ...defaultTranslations.EN };
+          
+          data.forEach(item => {
+            newGr[item.key] = item.value_gr;
+            newEn[item.key] = item.value_en;
+          });
+          
+          setTranslations({ GR: newGr, EN: newEn });
+        }
+      } catch (error) {
+        console.error('Error loading translations from Supabase:', error);
+      } finally {
+        setIsLoadingTranslations(false);
+      }
+    }
+
+    fetchTranslations();
+  }, []);
 
   const t = (key: string): string => {
     return translations[language][key] || key;
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage, t, isLoadingTranslations }}>
       {children}
     </LanguageContext.Provider>
   );
