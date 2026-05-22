@@ -171,8 +171,8 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
           
           setTranslations({ GR: newGr, EN: newEn });
         }
-      } catch (error) {
-        console.error('Error loading translations from Supabase:', error);
+      } catch (error: any) {
+        console.warn('Error loading translations from Supabase (using defaults):', error?.message || error);
       } finally {
         setIsLoadingTranslations(false);
       }
