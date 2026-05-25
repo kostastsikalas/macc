@@ -29,8 +29,7 @@ export default function AdminTeam() {
   
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    async function fetchMembers() {
+  const fetchMembers = async () => {
     setLoading(true);
     const { data, error } = await supabase
       .from('team_members')
@@ -39,7 +38,9 @@ export default function AdminTeam() {
       
     if (data) setMembers(data);
     setLoading(false);
-    }
+  };
+
+  useEffect(() => {
     fetchMembers();
   }, []);
 

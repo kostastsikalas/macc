@@ -37,8 +37,7 @@ export default function AdminNews() {
   
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    async function fetchArticles() {
+  const fetchArticles = async () => {
     setLoading(true);
     const { data, error } = await supabase
       .from('news')
@@ -47,7 +46,9 @@ export default function AdminNews() {
       
     if (data) setArticles(data);
     setLoading(false);
-    }
+  };
+
+  useEffect(() => {
     fetchArticles();
   }, []);
 

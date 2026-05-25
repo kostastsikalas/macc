@@ -31,17 +31,18 @@ export default function AdminPartners() {
   
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  const fetchPartners = async () => {
+    setLoading(true);
+    const { data, error } = await supabase
+      .from('partners')
+      .select('*')
+      .order('created_at', { ascending: true });
+      
+    if (data) setPartners(data);
+    setLoading(false);
+  };
+
   useEffect(() => {
-    async function fetchPartners() {
-      setLoading(true);
-      const { data, error } = await supabase
-        .from('partners')
-        .select('*')
-        .order('created_at', { ascending: true });
-        
-      if (data) setPartners(data);
-      setLoading(false);
-    }
     fetchPartners();
   }, []);
 
