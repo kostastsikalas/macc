@@ -24,121 +24,6 @@ interface TeamMember {
   linkedin: string;
 }
 
-const defaultMembers: TeamMember[] = [
-  {
-    "id": "default-1",
-    "name": "Δρ. Μιχάλης Καθαράκης",
-    "title": "Φυσικός",
-    "role": "CEO - Διαχειριστής",
-    "image_url": "/images/omada_katharakis.webp",
-    "linkedin": ""
-  },
-  {
-    "id": "default-2",
-    "name": "Γεωργία Καπελλάκη",
-    "title": "Φιλόλογος",
-    "role": "COO- Γενική Διευθύντρια Λειτουργιών",
-    "image_url": "/images/omada_kapelaki.webp",
-    "linkedin": ""
-  },
-  {
-    "id": "default-3",
-    "name": "Καθ. Εμμανουήλ Κουδουμάς",
-    "title": "Φυσικός",
-    "role": "Επιστημονικός Σύμβουλος",
-    "image_url": "/images/omada_koudoumas.webp",
-    "linkedin": ""
-  },
-  {
-    "id": "default-4",
-    "name": "Ευδοκία Κρυσταλλίδου",
-    "title": "Γεωπόνος- Ζωοτέχνης",
-    "role": "Επιστημονικός Σύμβουλος",
-    "image_url": "/images/Krystallidou-Vicky-REC2.webp",
-    "linkedin": "https://www.linkedin.com/in/evdokia-krystallidou-b08a4288/"
-  },
-  {
-    "id": "default-5",
-    "name": "Γιώργος Μανουσάκης",
-    "title": "Δημιουργός",
-    "role": "Υπεύθυνος Ανάπτυξης Δικτύου",
-    "image_url": "/images/omada_manousakis.webp",
-    "linkedin": ""
-  },
-  {
-    "id": "default-6",
-    "name": "Νικόλαος Ζερβός",
-    "title": "Οικονομολόγος",
-    "role": "Διαχειριστής Ευρωπαϊκών Έργων - Υπεύθυνος του Ζωντανού Εργαστηρίου MACCSOIL",
-    "image_url": "/images/ZERVOS-IMAGE.webp",
-    "linkedin": "https://www.linkedin.com/in/nikos-zervos-8b3962272/"
-  },
-  {
-    "id": "default-7",
-    "name": "Παύλος Κοκοσάλης",
-    "title": "Οικονομολόγος",
-    "role": "Υπεύθυνος για Χρηματοδοτούμενα Προγράμματα",
-    "image_url": "/images/20250114_150031_new-2.webp",
-    "linkedin": "https://www.linkedin.com/in/pavlos-kokosalis-9b55a4226/"
-  },
-  {
-    "id": "default-8",
-    "name": "Ιωάννης Ρινακάκης",
-    "title": "Γεωπόνος",
-    "role": "Υπεύθυνος πωλήσεων",
-    "image_url": "/images/RINAKAKIS-REC2.webp",
-    "linkedin": ""
-  },
-  {
-    "id": "default-9",
-    "name": "Μαρία-Ειρήνη Ταμβακάκη",
-    "title": "Λογοθεραπεύτρια",
-    "role": "Υπεύθυνη πωλήσεων",
-    "image_url": "/images/image0-32.webp",
-    "linkedin": ""
-  },
-  {
-    "id": "default-10",
-    "name": "Σοφία Μαραγκάκη",
-    "title": "Οικονομολόγος",
-    "role": "Υπεύθυνη για Χρηματοδοτούμενα Προγράμματα",
-    "image_url": "/images/omada_maragaki.webp",
-    "linkedin": "https://www.linkedin.com/in/sofia-maragkaki-64838094/"
-  },
-  {
-    "id": "default-11",
-    "name": "Χαράλαμπος Πατσιανωτάκης",
-    "title": "Ηλεκτρολόγος Μηχανικός & Μηχανικός Η/Υ",
-    "role": "Υπεύθυνος Τεχνικού Προϊόντος",
-    "image_url": "/images/LOG-B_0253-1.webp",
-    "linkedin": ""
-  },
-  {
-    "id": "default-12",
-    "name": "Νεκτάριος Φακιδάρης",
-    "title": "Μηχανολόγος Μηχανικός",
-    "role": "Υπεύθυνος Ανάπτυξης",
-    "image_url": "/images/omada_fakidaris.webp",
-    "linkedin": ""
-  },
-  {
-    "id": "default-13",
-    "name": "Ιωάννα Σπανάκη",
-    "title": "Δικηγόρος",
-    "role": "",
-    "image_url": "",
-    "linkedin": ""
-  },
-  {
-    "id": "default-14",
-    "name": "Γρηγόριος Κοκολάκης",
-    "title": "Οικονομολόγος",
-    "role": "",
-    "image_url": "/images/omada_kokolakis.webp",
-    "linkedin": ""
-  }
-];
-
 export default function Team() {
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
   const [loading, setLoading] = useState(true);
@@ -151,7 +36,7 @@ export default function Team() {
         .order('created_at', { ascending: true });
         
       if (data) {
-        setTeamMembers([...defaultMembers, ...data]);
+        setTeamMembers(data);
       }
       setLoading(false);
     };

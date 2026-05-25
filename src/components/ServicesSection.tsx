@@ -9,7 +9,8 @@ const servicePillars = [
     id: 'research',
     title: 'Έρευνα & Καινοτομία',
     icon: Microscope,
-    color: 'from-blue-500 to-cyan-400',
+    themeColor: 'text-[#4a5d23]',
+    bgAccent: 'bg-[#4a5d23]/10',
     services: [
       'Σχεδιασμός και εφαρμογή καινοτόμων λύσεων',
       'Ανάπτυξη συστημάτων μετρήσεων & αναλύσεων',
@@ -22,7 +23,8 @@ const servicePillars = [
     id: 'strategy',
     title: 'Στρατηγική & Οργάνωση',
     icon: Target,
-    color: 'from-emerald-500 to-teal-400',
+    themeColor: 'text-[#3e6e59]',
+    bgAccent: 'bg-[#3e6e59]/10',
     services: [
       'Παροχή υπηρεσιών συμβουλών στρατηγικού/οργανωτικού σχεδιασμού',
       'Εκπόνηση στρατηγικής & πλάνου μάρκετινγκ / HR',
@@ -34,7 +36,8 @@ const servicePillars = [
     id: 'market',
     title: 'Αγορά & Δικτύωση',
     icon: TrendingUp,
-    color: 'from-orange-500 to-amber-400',
+    themeColor: 'text-[#8c7853]',
+    bgAccent: 'bg-[#8c7853]/10',
     services: [
       'Εκπόνηση μελετών & ερευνών αγοράς (Ελλάδα & εξωτερικό)',
       'Οργάνωση στρατηγικής αγροτικής παραγωγής & τυποποίησης',
@@ -46,7 +49,8 @@ const servicePillars = [
     id: 'training',
     title: 'Αξιολόγηση & Εκπαίδευση',
     icon: BookOpen,
-    color: 'from-purple-500 to-indigo-400',
+    themeColor: 'text-[#6b824a]',
+    bgAccent: 'bg-[#6b824a]/10',
     services: [
       'Τεκμηρίωση & αξιολόγηση αγροδιατροφικών προϊόντων/υπηρεσιών',
       'Παροχή εκπαίδευσης & κατάρτισης προσωπικού',
@@ -57,18 +61,31 @@ const servicePillars = [
 
 export default function ServicesSection() {
   return (
-    <section className="py-24 bg-gray-50 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-macc-primary/5 blur-3xl" />
-      <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full bg-macc-secondary/10 blur-3xl" />
+    <section 
+      className="py-32 relative overflow-hidden bg-cover bg-center bg-fixed"
+      style={{ backgroundImage: 'url("/images/services-bg.png")' }}
+    >
+      {/* Soft overlay to make text highly readable */}
+      <div className="absolute inset-0 bg-[#fbfaf8]/85 backdrop-blur-[2px]" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className="max-w-4xl mx-auto text-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#f0ebd8] text-[#556b2f] text-sm font-medium tracking-wide mb-6"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#556b2f] mr-2" />
+            Τι Προσφέρουμε
+          </motion.div>
+
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-heading font-bold text-gray-900 mb-6"
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-medium text-[#2d3a1e] tracking-tight mb-8"
           >
             Οι Υπηρεσίες μας
           </motion.h2>
@@ -76,44 +93,46 @@ export default function ServicesSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-lg text-gray-600"
+            transition={{ delay: 0.2 }}
+            className="text-xl text-[#6e7462] font-light leading-relaxed max-w-2xl mx-auto"
           >
-            Οι υπηρεσίες που παρέχει το MACC οργανώνονται σε 4 στρατηγικούς πυλώνες, 
-            στοχεύοντας στην ολοκληρωμένη υποστήριξη του αγροδιατροφικού τομέα.
+            Οργανωμένες σε 4 στρατηγικούς πυλώνες, οι υπηρεσίες του MACC στοχεύουν 
+            στην ολοκληρωμένη καινοτομία και υποστήριξη του αγροδιατροφικού τομέα.
           </motion.p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+        {/* Services Grid - Bento/Organic Style */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-32 max-w-7xl mx-auto">
           {servicePillars.map((pillar, index) => {
             const Icon = pillar.icon;
             return (
               <motion.div
                 key={pillar.id}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-3xl p-8 shadow-xl shadow-gray-200/50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 group relative overflow-hidden"
+                transition={{ duration: 0.6, delay: index * 0.15, ease: [0.16, 1, 0.3, 1] }}
+                className="bg-white/80 backdrop-blur-xl rounded-[2.5rem] p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(46,83,67,0.12)] hover:-translate-y-2 transition-all duration-500 border border-white flex flex-col relative group"
               >
-                {/* Decorative gradient top bar */}
-                <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${pillar.color}`} />
-                
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`p-4 rounded-2xl bg-gradient-to-br ${pillar.color} text-white shadow-lg`}>
+                {/* Decorative blob on hover */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-white/0 to-[#556b2f]/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                <div className="flex items-center gap-5 mb-8 relative z-10">
+                  <div className={`p-4 rounded-2xl ${pillar.bgAccent} ${pillar.themeColor} transition-transform duration-500 group-hover:scale-110`}>
                     <Icon className="w-8 h-8" strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-2xl font-heading font-bold text-gray-900">
+                  <h3 className="text-3xl font-medium text-[#2d3a1e] tracking-tight">
                     {pillar.title}
                   </h3>
                 </div>
 
-                <ul className="space-y-4">
+                <ul className="space-y-5 flex-grow relative z-10">
                   {pillar.services.map((service, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-macc-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-600 leading-relaxed">{service}</span>
+                    <li key={i} className="flex items-start gap-4">
+                      <div className="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-[#f4f2ea] flex items-center justify-center">
+                        <CheckCircle2 className="w-4 h-4 text-[#6b824a]" strokeWidth={2.5} />
+                      </div>
+                      <span className="text-[#5a5f50] text-lg leading-relaxed font-light">{service}</span>
                     </li>
                   ))}
                 </ul>
@@ -122,31 +141,32 @@ export default function ServicesSection() {
           })}
         </div>
 
-        {/* ENoLL Banner */}
+        {/* ENoLL Banner - Redesigned */}
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-br from-[#1a365d] to-[#2c5282] rounded-3xl p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden"
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-5xl mx-auto bg-[#2d3a1e] rounded-[3rem] p-12 md:p-16 text-center text-white shadow-2xl relative overflow-hidden"
         >
-          {/* Subtle background pattern */}
-          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent" />
+          {/* Ambient light effect inside the dark card */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#4a5d23] rounded-full blur-[120px] opacity-40 pointer-events-none" />
           
-          <div className="relative z-10 max-w-4xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-heading font-bold mb-6 leading-tight">
+          <div className="relative z-10">
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-medium mb-8 leading-tight tracking-tight">
               Γίνε μέλος του Ευρωπαϊκού Δικτύου Ζωντανής Καινοτομίας
             </h3>
-            <p className="text-lg md:text-xl text-blue-100 mb-8 leading-relaxed font-light">
-              Για το MACC, η καινοτομία δεν είναι αυτοσκοπός. Αποκτά νόημα μόνο όταν είναι επικεντρωμένη στην ικανοποίηση των αναγκών του χρήστη ατομικά και της κοινωνίας συνολικά. Δείχνοντας έμπρακτα την αφοσίωσή του στη δημιουργία αξίας μέσω των συνεργειών, το MACC συμμετέχει στο Ευρωπαϊκό Δίκτυο των Εργαστηρίων Ζωντανής Καινοτομίας (ENoLL).
+            <p className="text-xl text-[#d4c3a3] mb-12 leading-relaxed font-light max-w-3xl mx-auto">
+              Για το MACC, η καινοτομία δεν είναι αυτοσκοπός. Αποκτά νόημα μόνο όταν είναι επικεντρωμένη στην ικανοποίηση των αναγκών του χρήστη. Δείχνοντας έμπρακτα την αφοσίωσή του στη δημιουργία αξίας μέσω των συνεργειών, το MACC συμμετέχει στο Ευρωπαϊκό Δίκτυο των Εργαστηρίων Ζωντανής Καινοτομίας (ENoLL).
             </p>
             
             <a 
               href="https://enoll.org/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-[#1a365d] px-8 py-4 rounded-full font-semibold hover:bg-blue-50 hover:scale-105 transition-all duration-300 shadow-lg"
+              className="inline-flex items-center gap-3 bg-[#e6d8bc] text-[#2d3a1e] px-10 py-5 rounded-full text-lg font-medium hover:bg-white hover:scale-105 hover:shadow-xl hover:shadow-white/10 transition-all duration-300"
             >
-              Μάθετε περισσότερα για το ENoLL
+              Μάθετε περισσότερα
               <ExternalLink className="w-5 h-5" />
             </a>
           </div>

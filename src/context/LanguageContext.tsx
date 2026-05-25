@@ -30,6 +30,7 @@ const defaultTranslations: Record<Language, Record<string, string>> = {
     'nav.products.smartAgro': 'Smart-agro Genius',
     'nav.products.fertiwool': 'Fertiwool',
     'nav.products.flaivor': 'FLAiVOR',
+    'nav.products.foodoxys': 'Foodoxys x MACC: Decode Your Metabolism',
     'nav.news': 'News',
     'nav.join': 'Join Us',
 
@@ -94,6 +95,7 @@ const defaultTranslations: Record<Language, Record<string, string>> = {
     'nav.products.smartAgro': 'Smart-agro Genius',
     'nav.products.fertiwool': 'Fertiwool',
     'nav.products.flaivor': 'FLAiVOR',
+    'nav.products.foodoxys': 'Foodoxys x MACC: Αποκωδικοποίησε τον Μεταβολισμό σου',
     'nav.news': 'Νέα',
     'nav.join': 'Γίνετε Μέλος',
 

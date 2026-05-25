@@ -38,10 +38,7 @@ export default function AdminNews() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    fetchArticles();
-  }, []);
-
-  const fetchArticles = async () => {
+    async function fetchArticles() {
     setLoading(true);
     const { data, error } = await supabase
       .from('news')
@@ -50,7 +47,9 @@ export default function AdminNews() {
       
     if (data) setArticles(data);
     setLoading(false);
-  };
+    }
+    fetchArticles();
+  }, []);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {

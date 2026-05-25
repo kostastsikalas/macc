@@ -20,10 +20,7 @@ export default function AdminContentPage() {
   const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
 
   useEffect(() => {
-    fetchContent();
-  }, []);
-
-  const fetchContent = async () => {
+    async function fetchContent() {
     setLoading(true);
     const { data, error } = await supabase
       .from('site_content')
@@ -38,7 +35,9 @@ export default function AdminContentPage() {
       setContent(data);
     }
     setLoading(false);
-  };
+    }
+    fetchContent();
+  }, []);
 
   const handleUpdate = async (item: ContentItem) => {
     setSavingKey(item.key);

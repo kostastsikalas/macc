@@ -30,10 +30,7 @@ export default function AdminTeam() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    fetchMembers();
-  }, []);
-
-  const fetchMembers = async () => {
+    async function fetchMembers() {
     setLoading(true);
     const { data, error } = await supabase
       .from('team_members')
@@ -42,7 +39,9 @@ export default function AdminTeam() {
       
     if (data) setMembers(data);
     setLoading(false);
-  };
+    }
+    fetchMembers();
+  }, []);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
