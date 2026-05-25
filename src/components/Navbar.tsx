@@ -123,8 +123,8 @@ export default function Navbar() {
       label: t('nav.products'),
       isDropdown: true,
       subItems: [
-        { label: t('nav.products.smartAgro'), href: '#smart-agro' },
-        { label: t('nav.products.fertiwool'), href: '#fertiwool' },
+        { label: t('nav.products.smartAgro'), href: '/products/smart-agro' },
+        { label: t('nav.products.fertiwool'), href: '/products/fertiwool' },
         { label: t('nav.products.flaivor'), href: '#flaivor' },
         { label: t('nav.products.foodoxys'), href: '/products/foodoxys' },
       ]
